@@ -84,7 +84,34 @@ class HelpCenter extends StatelessWidget {
             SizedBox(height:15),
             Text("Social Media:",
             style: TextStyle(fontWeight: FontWeight.bold,
-            fontSize: 18),),
+            fontSize: 18),
+          ),
+           SizedBox(height:15),
+             SizedBox(height:15),
+            Row(
+              children:[
+               FaIcon(FontAwesomeIcons.facebook,
+               color: Colors.blue,
+               size:20.0, 
+               ),
+               SizedBox(width:20),
+               Text("facebook/RushDeliveryApp",
+                ),
+              ]
+            ),
+             SizedBox(height:15),
+            Row(
+              children:[
+               FaIcon(FontAwesomeIcons.instagram,
+               color: Colors.blue,
+               size:20.0, 
+               ),
+               SizedBox(width:20),
+               Text("Instagram/RushDeliveryApp",
+                ),
+              ]
+            ),
+
           ],
         ),
       ),
