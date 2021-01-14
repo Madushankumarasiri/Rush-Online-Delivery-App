@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rush_delivery/widgets/app_drawer.dart';
 
 
 class HelpCenter extends StatelessWidget {
@@ -9,6 +10,7 @@ class HelpCenter extends StatelessWidget {
       appBar: AppBar(
         title: Text("Help Center"),
       ),
+      drawer: AppDrawer(),
       
     );
   }
