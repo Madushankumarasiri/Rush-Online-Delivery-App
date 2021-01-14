@@ -55,11 +55,39 @@ class HelpCenter extends StatelessWidget {
                SizedBox(width:20),
                Text("www.rushdelivery.com",
                 ),
+              ],
+            ),
+            SizedBox(height:15),
+            Row(
+              children:[
+               FaIcon(FontAwesomeIcons.phone,
+               color: Colors.blue,
+               size:20.0, 
+               ),
+               SizedBox(width:20),
+               Text("114-456-789",
+                ),
               ]
             ),
             SizedBox(height:15),
+            Row(
+              children:[
+               FaIcon(FontAwesomeIcons.envelope,
+               color: Colors.blue,
+               size:20.0, 
+               ),
+               SizedBox(width:20),
+               Text("rushdelivery@gmail.com",
+                ),
+              ]
+            ),
+            SizedBox(height:15),
+            Text("Social Media:",
+            style: TextStyle(fontWeight: FontWeight.bold,
+            fontSize: 18),),
           ],
-        ),),
+        ),
+      ),
         
       
     );
