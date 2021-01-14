@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rush_delivery/widgets/app_drawer.dart';
 
 import '../constants.dart';
@@ -39,6 +40,24 @@ class HelpCenter extends StatelessWidget {
               fontSize: 18
             ),),
             SizedBox(height:18),
+            Text("Information:",
+            style: TextStyle(fontWeight: FontWeight.bold,
+            fontSize: 18
+            ),
+            ),
+             SizedBox(height:18),
+            Row(
+              children:[
+               FaIcon(FontAwesomeIcons.home,
+               color: Colors.blue,
+               size:20.0, 
+               ),
+               SizedBox(width:20),
+               Text("www.rushdelivery.com",
+                ),
+              ]
+            ),
+            SizedBox(height:15),
           ],
         ),),
         
