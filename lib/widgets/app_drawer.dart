@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../constants.dart';
 import '../screens/orders_screen.dart';
+import '../screens/Help_Center.dart';
+
 // import '../screens/user_products_screen.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -46,8 +48,8 @@ class AppDrawer extends StatelessWidget {
              color: kPrimaryColor,),
             title: Text('Help Center'),
             onTap: () {
-              // Navigator.of(context)
-              //     .pushReplacementNamed(HelpCenter.routeName);
+              Navigator.of(context)
+                  .pushReplacementNamed(HelpCenter.routeName);
             },
           ),
            Divider(),
