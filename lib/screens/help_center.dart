@@ -33,6 +33,12 @@ class HelpCenter extends StatelessWidget {
             color: kPrimaryColor,
             fontSize: 24),
             ),
+            Text("Since 2020 we make people happy with\n our Service.",
+            style: TextStyle(
+              color: kSecondaryTextColor,
+              fontSize: 18
+            ),),
+            SizedBox(height:18),
           ],
         ),),
         
