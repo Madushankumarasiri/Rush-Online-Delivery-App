@@ -78,12 +78,17 @@ class OrderButton extends StatefulWidget {
 class _OrderButtonState extends State<OrderButton> {
   var _isLoading = false;
   _openPopup(context) {
+    String address = '';
+
     Alert(
         context: context,
         title: "LOGIN",
         content: Column(
           children: <Widget>[
             TextField(
+              onChanged: (val) {
+                setState(() => address = val);
+              },
               decoration: InputDecoration(
                 icon: Icon(Icons.account_circle),
                 labelText: 'Address',
