@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:rush_delivery/widgets/app_drawer.dart';
 
+import '../constants.dart';
+
+
 
 class HelpCenter extends StatelessWidget {
   static const routeName = '/help-center';
@@ -23,7 +26,13 @@ class HelpCenter extends StatelessWidget {
               image: DecorationImage(
                 image: NetworkImage("https://cdn.dribbble.com/users/77121/screenshots/10634984/media/da85bf275076874503b86b6713335c35.gif"),
                 fit: BoxFit.cover),
-              ),),
+              ),
+            ),
+            Text("Rush Food Delivery App",
+            style: TextStyle(fontWeight: FontWeight.bold,
+            color: kPrimaryColor,
+            fontSize: 24),
+            ),
           ],
         ),),
         
