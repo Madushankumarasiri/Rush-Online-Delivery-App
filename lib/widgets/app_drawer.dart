@@ -50,6 +50,20 @@ class AppDrawer extends StatelessWidget {
               //     .pushReplacementNamed(HelpCenter.routeName);
             },
           ),
+           Divider(),
+          ListTile(
+            leading: Icon(Icons.exit_to_app,
+             color: kPrimaryColor,),
+            title: Text('Logout'),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).pushReplacementNamed('/');
+              
+              // Navigator.of(context)
+              //     .pushReplacementNamed(UserProductsScreen.routeName);
+              // Provider.of<Auth>(context, listen: false).logout();
+            },
+          ),
           
 
         ],
