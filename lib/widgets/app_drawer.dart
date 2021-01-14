@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../constants.dart';
 import '../screens/orders_screen.dart';
 // import '../screens/user_products_screen.dart';
 
@@ -40,6 +41,15 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           Divider(),
+          ListTile(
+            leading: Icon(Icons.question_answer,
+             color: kPrimaryColor,),
+            title: Text('Help Center'),
+            onTap: () {
+              // Navigator.of(context)
+              //     .pushReplacementNamed(HelpCenter.routeName);
+            },
+          ),
           
 
         ],
