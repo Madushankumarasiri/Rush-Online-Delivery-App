@@ -11,6 +11,22 @@ class HelpCenter extends StatelessWidget {
         title: Text("Help Center"),
       ),
       drawer: AppDrawer(),
+      body: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(width:400,
+              height: 200,
+              decoration: BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage("https://cdn.dribbble.com/users/77121/screenshots/10634984/media/da85bf275076874503b86b6713335c35.gif"),
+                fit: BoxFit.cover),
+              ),),
+          ],
+        ),),
+        
       
     );
   }
