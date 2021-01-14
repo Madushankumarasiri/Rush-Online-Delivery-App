@@ -79,10 +79,11 @@ class _OrderButtonState extends State<OrderButton> {
   var _isLoading = false;
   _openPopup(context) {
     String address = '';
+    String payment = '';
 
     Alert(
         context: context,
-        title: "LOGIN",
+        title: "Add your details",
         content: Column(
           children: <Widget>[
             TextField(
@@ -96,9 +97,12 @@ class _OrderButtonState extends State<OrderButton> {
             ),
             TextField(
               obscureText: true,
+              onChanged: (val) {
+                setState(() => payment = val);
+              },
               decoration: InputDecoration(
                 icon: Icon(Icons.lock),
-                labelText: 'Password',
+                labelText: 'Payment',
                 // controller: PaymentController,
               ),
             ),
