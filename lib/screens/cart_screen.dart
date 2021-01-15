@@ -19,6 +19,7 @@ class CartScreen extends StatelessWidget {
       body: Column(
         children: <Widget>[
           Card(
+            
             margin: EdgeInsets.all(15),
             child: Padding(
               padding: EdgeInsets.all(8),
@@ -34,7 +35,7 @@ class CartScreen extends StatelessWidget {
                     label: Text(
                       '\$${cart.totalAmount.toStringAsFixed(2)}',
                       style: TextStyle(
-                        color: Theme.of(context).primaryTextTheme.title.color,
+                        color: Theme.of(context).primaryTextTheme.headline6.color,
                       ),
                     ),
                     backgroundColor: Theme.of(context).primaryColor,
