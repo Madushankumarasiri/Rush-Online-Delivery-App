@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rush_delivery/constants.dart';
 
 import '../providers/orders.dart' show Orders;
 import '../widgets/order_item.dart';
@@ -21,7 +22,7 @@ class OrdersScreen extends StatelessWidget {
         future: Provider.of<Orders>(context, listen: false).fetchAndSetOrders(),
         builder: (ctx, dataSnapshot) {
           if (dataSnapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return Center(child: kProgressWave);
           } else {
             if (dataSnapshot.error != null) {
               // ...
