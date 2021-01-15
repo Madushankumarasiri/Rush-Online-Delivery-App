@@ -62,17 +62,18 @@ class Orders with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> addOrder(List<CartItem> cartProducts, double total, String hello, String address) async {
+  Future<void> addOrder(List<CartItem> cartProducts, double total,
+      String payment, String address) async {
     final url =
         'https://final-shop-8d44f-default-rtdb.firebaseio.com/orders/$userId.json?auth=$authToken';
     final timestamp = DateTime.now();
     final response = await http.post(
       url,
       body: json.encode({
-        'amount': total, 
+        'amount': total,
         'dateTime': timestamp.toIso8601String(),
         'address': address,
-        'alert': hello,
+        'payment': payment,
         'products': cartProducts
             .map((cp) => {
                   'id': cp.id,

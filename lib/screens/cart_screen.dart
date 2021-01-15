@@ -77,6 +77,60 @@ class OrderButton extends StatefulWidget {
 
 class _OrderButtonState extends State<OrderButton> {
   var _isLoading = false;
+  _openPopup(context) {
+    String address = '';
+    String payment = '';
+
+    Alert(
+        context: context,
+        title: "Add your details",
+        content: Column(
+          children: <Widget>[
+            TextField(
+              onChanged: (val) {
+                setState(() => address = val);
+              },
+              decoration: InputDecoration(
+                icon: Icon(Icons.account_circle),
+                labelText: 'Address',
+              ),
+            ),
+            TextField(
+              obscureText: true,
+              onChanged: (val) {
+                setState(() => payment = val);
+              },
+              decoration: InputDecoration(
+                icon: Icon(Icons.lock),
+                labelText: 'Payment',
+                // controller: PaymentController,
+              ),
+            ),
+          ],
+        ),
+        buttons: [
+          DialogButton(
+            onPressed: (widget.cart.totalAmount <= 0 || _isLoading)
+                ? null
+                : () async {
+                    setState(() {
+                      _isLoading = true;
+                    });
+                    Navigator.pop(context);
+                    await Provider.of<Orders>(context, listen: false).addOrder(
+                      widget.cart.items.values.toList(),
+                      widget.cart.totalAmount,
+                      "hello",
+                      address,
+                    );
+                    setState(() {
+                      _isLoading = false;
+                    });
+                    widget.cart.clear();
+                  },
+          )
+        ]).show();
+  }
 
   @override
   Widget build(BuildContext context) {
