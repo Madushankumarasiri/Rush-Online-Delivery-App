@@ -5,6 +5,7 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 import '../providers/cart.dart' show Cart;
 import '../widgets/cart_item.dart';
 import '../providers/orders.dart';
+// import '../constants.dart';
 
 class CartScreen extends StatelessWidget {
   static const routeName = '/cart';
@@ -26,17 +27,24 @@ class CartScreen extends StatelessWidget {
                 bottomLeft: Radius.circular(10),
               ),
             ),
-            
+            elevation: 2,
+
 
             margin: EdgeInsets.all(15),
-            child: Padding(
+            child: Container(
               padding: EdgeInsets.all(8),
+              decoration:BoxDecoration(
+            border: Border(
+              right: BorderSide(
+                color: kPrimaryColor, 
+                width: 8),),),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
                     'Total',
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 20,
+                    color: kPrimaryColor),
                   ),
                   Spacer(),
                   Chip(
