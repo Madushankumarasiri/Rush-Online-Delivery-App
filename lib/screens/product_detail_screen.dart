@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import '../constants.dart';
-// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/products.dart';
 
-class ProductDetailScreen extends StatelessWidget{
+class ProductDetailScreen extends StatelessWidget {
   static const routeName = '/product-detail';
   @override
   Widget build(BuildContext context) {
-   
-   final productId =
+    final productId =
         ModalRoute.of(context).settings.arguments as String; // is the id!
     final loadedProduct = Provider.of<Products>(
       context,
@@ -20,11 +19,10 @@ class ProductDetailScreen extends StatelessWidget{
       appBar: AppBar(
         title: Text(loadedProduct.title),
       ),
-
-      body:SingleChildScrollView(
-        child:Column(
+      body: SingleChildScrollView(
+        child: Column(
           children: [
-             Container(
+            Container(
               color: kPrimaryColor,
               height: 300,
               width: double.infinity,
@@ -33,8 +31,7 @@ class ProductDetailScreen extends StatelessWidget{
                 fit: BoxFit.cover,
               ),
             ),
-
-             SizedBox(
+            SizedBox(
               height: 10,
             ),
             Container(
@@ -42,25 +39,25 @@ class ProductDetailScreen extends StatelessWidget{
               width: double.infinity,
               child: Column(
                 children: [
-                  Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(loadedProduct.title,
-            textAlign: TextAlign.left,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 24),
-            ),
-              Text(
-              '\$${loadedProduct.price}',
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 20,
-                fontWeight: FontWeight.bold
-              ),
-            ),
-            ],
-             ),
-             SizedBox(height:10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        loadedProduct.title,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 24),
+                      ),
+                      Text(
+                        '\$${loadedProduct.price}',
+                        style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10),
                   Text(
                     loadedProduct.description,
                     textAlign: TextAlign.center,
@@ -69,33 +66,32 @@ class ProductDetailScreen extends StatelessWidget{
                 ],
               ),
             ),
-
             SizedBox(height: 30),
             Container(
               margin: EdgeInsets.all(10),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                color: kPrimaryColor),
+                  borderRadius: BorderRadius.circular(16),
+                  color: kPrimaryColor),
               padding: EdgeInsets.all(10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-              children:[
-                Text("Add to cart",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18
-                ), ),
-                SizedBox(width: 10),
-                IconButton(icon: FaIcon(FontAwesomeIcons.shoppingCart), onPressed: (){},
-              color: Colors.black,) 
-               ],
-            ),
+                children: [
+                  Text(
+                    "Add to cart",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
+                  SizedBox(width: 10),
+                  IconButton(
+                    icon: FaIcon(FontAwesomeIcons.shoppingCart),
+                    onPressed: () {},
+                    color: Colors.black,
+                  )
+                ],
               ),
+            ),
           ],
-          ),
+        ),
       ),
     );
   }
-
-
 }

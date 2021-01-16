@@ -5,7 +5,7 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 import '../providers/cart.dart' show Cart;
 import '../widgets/cart_item.dart';
 import '../providers/orders.dart';
-// import '../constants.dart';
+import '../constants.dart';
 
 class CartScreen extends StatelessWidget {
   static const routeName = '/cart';
@@ -22,36 +22,34 @@ class CartScreen extends StatelessWidget {
           Card(
             shadowColor: kPrimaryColor.withOpacity(.60),
             shape: RoundedRectangleBorder(
-              borderRadius:BorderRadius.only(
-                topLeft:  Radius.circular(10),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(10),
                 bottomLeft: Radius.circular(10),
               ),
             ),
             elevation: 2,
-
-
             margin: EdgeInsets.all(15),
             child: Container(
               padding: EdgeInsets.all(8),
-              decoration:BoxDecoration(
-            border: Border(
-              right: BorderSide(
-                color: kPrimaryColor, 
-                width: 8),),),
+              decoration: BoxDecoration(
+                border: Border(
+                  right: BorderSide(color: kPrimaryColor, width: 8),
+                ),
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
                     'Total',
-                    style: TextStyle(fontSize: 20,
-                    color: kPrimaryColor),
+                    style: TextStyle(fontSize: 20, color: kPrimaryColor),
                   ),
                   Spacer(),
                   Chip(
                     label: Text(
                       '\$${cart.totalAmount.toStringAsFixed(2)}',
                       style: TextStyle(
-                        color: Theme.of(context).primaryTextTheme.headline6.color,
+                        color:
+                            Theme.of(context).primaryTextTheme.headline6.color,
                       ),
                     ),
                     backgroundColor: Theme.of(context).primaryColor,
