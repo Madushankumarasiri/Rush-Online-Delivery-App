@@ -77,6 +77,14 @@ class AuthScreen extends StatelessWidget {
                                             onPressed: null),
                                       ],
                                     ),
+                                    SizedBox(height: 20),
+                                    Text(
+                                      "By continuing your confirm that you agree \nwith our Terms and Conditions",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: kSecondaryColor,
+                                          fontWeight: FontWeight.bold),
+                                    ),
                                   ],
                                 ),
                               ))
