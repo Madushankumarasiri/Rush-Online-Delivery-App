@@ -52,6 +52,31 @@ class AuthScreen extends StatelessWidget {
                                     //   flex: deviceSize.width > 600? 2: 1,
                                     //   //child: AuthCard(),
                                     // ),
+                                    SizedBox(height: 20),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        IconButton(
+                                            icon: FaIcon(
+                                              FontAwesomeIcons.google,
+                                              color: Colors.blue,
+                                            ),
+                                            onPressed: null),
+                                        IconButton(
+                                            icon: FaIcon(
+                                              FontAwesomeIcons.facebook,
+                                              color: Colors.blue,
+                                            ),
+                                            onPressed: null),
+                                        IconButton(
+                                            icon: FaIcon(
+                                              FontAwesomeIcons.twitter,
+                                              color: Colors.blue,
+                                            ),
+                                            onPressed: null),
+                                      ],
+                                    ),
                                   ],
                                 ),
                               ))
