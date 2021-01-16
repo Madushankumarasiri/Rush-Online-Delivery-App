@@ -39,6 +39,22 @@ class AuthScreen extends StatelessWidget {
                                 fontSize: 16,
                               ),
                               maxLines: 2),
+                          Container(
+                              height: deviceSize.height,
+                              width: deviceSize.width,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  // mainAxisAlignment: MainAxisAlignment.start,
+                                  // crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: <Widget>[
+                                    // Flexible(
+                                    //   flex: deviceSize.width > 600? 2: 1,
+                                    //   //child: AuthCard(),
+                                    // ),
+                                  ],
+                                ),
+                              ))
                         ],
                       ),
                     )
