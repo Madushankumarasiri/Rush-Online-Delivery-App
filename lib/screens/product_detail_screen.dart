@@ -20,6 +20,22 @@ class ProductDetailScreen extends StatelessWidget{
       appBar: AppBar(
         title: Text(loadedProduct.title),
       ),
+
+      body:SingleChildScrollView(
+        child:Column(
+          children: [
+             Container(
+              color: kPrimaryColor,
+              height: 300,
+              width: double.infinity,
+              child: Image.network(
+                loadedProduct.imageUrl,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ],
+          ),
+      ),
     );
   }
 
