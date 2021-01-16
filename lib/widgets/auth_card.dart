@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/constants.dart';
-import 'package:flutter_complete_guide/providers/auth.dart';
-import 'package:flutter_complete_guide/screens/auth_screen.dart';
+import 'package:rush_delivery/constants.dart';
+import 'package:rush_delivery/providers/auth.dart';
+import 'package:rush_delivery/screens/auth_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -43,6 +43,18 @@ class _AuthCardState extends State<AuthCard> {
         ],
       ),
     );
+  }
+
+  void _switchAuthMode() {
+    if (_authMode == AuthMode.Login) {
+      setState(() {
+        _authMode = AuthMode.Signup;
+      });
+    } else {
+      setState(() {
+        _authMode = AuthMode.Login;
+      });
+    }
   }
 
   Future<void> _submit() async {
@@ -91,6 +103,18 @@ class _AuthCardState extends State<AuthCard> {
     setState(() {
       _isLoading = false;
     });
+  }
+
+  void _switchAuthMode() {
+    if (_authMode == AuthMode.Login) {
+      setState(() {
+        _authMode = AuthMode.Signup;
+      });
+    } else {
+      setState(() {
+        _authMode = AuthMode.Login;
+      });
+    }
   }
 
   @override
