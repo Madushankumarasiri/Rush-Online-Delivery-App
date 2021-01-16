@@ -1,6 +1,7 @@
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import '../constants.dart';
+import 'package:rush_delivery/widgets/auth_card.dart';
 // import 'package:flutter_complete_guide/widgets/auth_card.dart';
 
 enum AuthMode { Signup, Login }
@@ -56,10 +57,10 @@ colorFilter: ColorFilter.mode(Colors.white12.withOpacity(.90), BlendMode.dstIn),
                                       // mainAxisAlignment: MainAxisAlignment.start,
                                       // crossAxisAlignment: CrossAxisAlignment.center,
                                       children: <Widget>[
-                                        // Flexible(
-                                        //   flex: deviceSize.width > 600? 2: 1,
-                                        //   //child: AuthCard(),
-                                        // ),
+                                        Flexible(
+                                          flex: deviceSize.width > 600? 2: 1,
+                                          child: AuthCard(),
+                                        ),
                                         SizedBox(height: 20),
                                         Row(
                                           mainAxisAlignment:

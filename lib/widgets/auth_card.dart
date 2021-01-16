@@ -1,10 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:rush_delivery/constants.dart';
-import 'package:rush_delivery/providers/auth.dart';
 import 'package:rush_delivery/screens/auth_screen.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../constants.dart';
+import 'package:rush_delivery/providers/auth.dart';
+
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 class AuthCard extends StatefulWidget {
@@ -31,30 +32,18 @@ class _AuthCardState extends State<AuthCard> {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('An Error Occurred!'),
-        content: Text(message),
-        actions: <Widget>[
-          FlatButton(
-            child: Text('Okay'),
-            onPressed: () {
-              Navigator.of(ctx).pop();
-            },
-          )
-        ],
-      ),
+            title: Text('An Error Occurred!'),
+            content: Text(message),
+            actions: <Widget>[
+              FlatButton(
+                child: Text('Okay'),
+                onPressed: () {
+                  Navigator.of(ctx).pop();
+                },
+              )
+            ],
+          ),
     );
-  }
-
-  void _switchAuthMode() {
-    if (_authMode == AuthMode.Login) {
-      setState(() {
-        _authMode = AuthMode.Signup;
-      });
-    } else {
-      setState(() {
-        _authMode = AuthMode.Login;
-      });
-    }
   }
 
   Future<void> _submit() async {
@@ -105,6 +94,18 @@ class _AuthCardState extends State<AuthCard> {
     });
   }
 
+  void _switchAuthMode() {
+    if (_authMode == AuthMode.Login) {
+      setState(() {
+        _authMode = AuthMode.Signup;
+      });
+    } else {
+      setState(() {
+        _authMode = AuthMode.Login;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
@@ -113,6 +114,7 @@ class _AuthCardState extends State<AuthCard> {
         borderRadius: BorderRadius.circular(10.0),
       ),
       elevation: 8.0,
+    
       child: Container(
         height: _authMode == AuthMode.Signup ? 320 : 260,
         constraints:
@@ -122,6 +124,7 @@ class _AuthCardState extends State<AuthCard> {
         child: Form(
           key: _formKey,
           child: SingleChildScrollView(
+            
             child: Column(
               children: <Widget>[
                 // Text("Sign up with emil and password\n or continue with social media",
@@ -133,16 +136,14 @@ class _AuthCardState extends State<AuthCard> {
                     hintText: "Enter your email",
                     floatingLabelBehavior: FloatingLabelBehavior.always,
                     suffixIcon: FaIcon(FontAwesomeIcons.envelope),
-                    contentPadding:
-                        EdgeInsets.symmetric(horizontal: 42, vertical: 20),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(28),
-                      borderSide: BorderSide(color: kTextColor),
-                      gapPadding: 10,
+                    contentPadding: EdgeInsets.symmetric(horizontal:42, vertical:20),
+                    enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(28),
+                    borderSide: BorderSide(color: kTextColor),
+                    gapPadding: 10,
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(28),
-                      borderSide: BorderSide(color: kTextColor),
+                      borderSide: BorderSide(color:kTextColor),
                       gapPadding: 10,
                     ),
                   ),
@@ -152,32 +153,31 @@ class _AuthCardState extends State<AuthCard> {
                     if (value.isEmpty || !value.contains('@')) {
                       return 'Invalid email!';
                     }
+                    
                   },
                   onSaved: (value) {
                     _authData['email'] = value;
                   },
                 ),
-                SizedBox(height: 10),
+                SizedBox(height:10),
                 TextFormField(
                   decoration: InputDecoration(
                     labelText: 'Password',
                     hintText: "Enter Password",
                     floatingLabelBehavior: FloatingLabelBehavior.always,
                     suffixIcon: FaIcon(FontAwesomeIcons.lock),
-                    contentPadding:
-                        EdgeInsets.symmetric(horizontal: 42, vertical: 20),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(28),
-                      borderSide: BorderSide(color: kTextColor),
-                      gapPadding: 10,
+                    contentPadding: EdgeInsets.symmetric(horizontal:42, vertical:20),
+                    enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(28),
+                    borderSide: BorderSide(color: kTextColor),
+                    gapPadding: 10,
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(28),
-                      borderSide: BorderSide(color: kTextColor),
+                      borderSide: BorderSide(color:kTextColor),
                       gapPadding: 10,
                     ),
                   ),
-
+                    
                   obscureText: true,
                   controller: _passwordController,
                   // ignore: missing_return
@@ -190,7 +190,7 @@ class _AuthCardState extends State<AuthCard> {
                     _authData['password'] = value;
                   },
                 ),
-                SizedBox(height: 10),
+                SizedBox(height:10),
                 if (_authMode == AuthMode.Signup)
                   // SizedBox(height:20),
                   TextFormField(
@@ -198,24 +198,19 @@ class _AuthCardState extends State<AuthCard> {
                     decoration: InputDecoration(
                       labelText: 'Confirm Password',
                       hintText: "Enter Password again",
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
-                      suffixIcon: FaIcon(
-                        FontAwesomeIcons.lockOpen,
-                        size: 20,
-                      ),
-                      contentPadding:
-                          EdgeInsets.symmetric(horizontal: 42, vertical: 20),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(28),
-                        borderSide: BorderSide(color: kTextColor),
-                        gapPadding: 10,
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(28),
-                        borderSide: BorderSide(color: kTextColor),
-                        gapPadding: 10,
-                      ),
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                    suffixIcon: FaIcon(FontAwesomeIcons.lockOpen,size: 20,),
+                    contentPadding: EdgeInsets.symmetric(horizontal:42, vertical:20),
+                    enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(28),
+                    borderSide: BorderSide(color: kTextColor),
+                    gapPadding: 10,
                     ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(28),
+                      borderSide: BorderSide(color:kTextColor),
+                      gapPadding: 10,
+                    ),
+                  ),
                     obscureText: true,
                     validator: _authMode == AuthMode.Signup
                         ? (value) {
@@ -240,8 +235,10 @@ class _AuthCardState extends State<AuthCard> {
                     ),
                     padding:
                         EdgeInsets.symmetric(horizontal: 30.0, vertical: 8.0),
-                    color: Theme.of(context).primaryColor,
-                    textColor: Theme.of(context).primaryTextTheme.button.color,
+                    // color: Theme.of(context).primaryColor,
+                    color: kPrimaryColor,
+                    // textColor: Theme.of(context).primaryTextTheme.button.color,
+                    textColor:  kTextColor,
                   ),
                 FlatButton(
                   child: Text(
@@ -249,8 +246,9 @@ class _AuthCardState extends State<AuthCard> {
                   onPressed: _switchAuthMode,
                   padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 4),
                   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  textColor: Theme.of(context).primaryColor,
+                  textColor:  kTextColor,
                 ),
+                
               ],
             ),
           ),
