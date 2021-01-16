@@ -44,41 +44,114 @@ class _AuthCardState extends State<AuthCard> {
         child: Form(
           key: _formKey,
           child: SingleChildScrollView(
-            child: Column(children: <Widget>[
-              // Text("Sign up with emil and password\n or continue with social media",
-              // maxLines:2 ),
-              SizedBox(height: 2),
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'E-Mail',
-                  hintText: "Enter your email",
-                  floatingLabelBehavior: FloatingLabelBehavior.always,
-                  suffixIcon: FaIcon(FontAwesomeIcons.envelope),
-                  contentPadding:
-                      EdgeInsets.symmetric(horizontal: 42, vertical: 20),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(28),
-                    borderSide: BorderSide(color: kTextColor),
-                    gapPadding: 10,
+            child: Column(
+              children: <Widget>[
+                // Text("Sign up with emil and password\n or continue with social media",
+                // maxLines:2 ),
+                SizedBox(height: 2),
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: 'E-Mail',
+                    hintText: "Enter your email",
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                    suffixIcon: FaIcon(FontAwesomeIcons.envelope),
+                    contentPadding:
+                        EdgeInsets.symmetric(horizontal: 42, vertical: 20),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(28),
+                      borderSide: BorderSide(color: kTextColor),
+                      gapPadding: 10,
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(28),
+                      borderSide: BorderSide(color: kTextColor),
+                      gapPadding: 10,
+                    ),
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(28),
-                    borderSide: BorderSide(color: kTextColor),
-                    gapPadding: 10,
-                  ),
+                  keyboardType: TextInputType.emailAddress,
+                  // ignore: missing_return
+                  validator: (value) {
+                    if (value.isEmpty || !value.contains('@')) {
+                      return 'Invalid email!';
+                    }
+                  },
+                  onSaved: (value) {
+                    _authData['email'] = value;
+                  },
                 ),
-                keyboardType: TextInputType.emailAddress,
-                // ignore: missing_return
-                validator: (value) {
-                  if (value.isEmpty || !value.contains('@')) {
-                    return 'Invalid email!';
-                  }
-                },
-                onSaved: (value) {
-                  _authData['email'] = value;
-                },
-              ),
-            ]),
+                SizedBox(height: 10),
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: 'Password',
+                    hintText: "Enter Password",
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                    suffixIcon: FaIcon(FontAwesomeIcons.lock),
+                    contentPadding:
+                        EdgeInsets.symmetric(horizontal: 42, vertical: 20),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(28),
+                      borderSide: BorderSide(color: kTextColor),
+                      gapPadding: 10,
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(28),
+                      borderSide: BorderSide(color: kTextColor),
+                      gapPadding: 10,
+                    ),
+                  ),
+
+                  obscureText: true,
+                  controller: _passwordController,
+                  // ignore: missing_return
+                  validator: (value) {
+                    if (value.isEmpty || value.length < 5) {
+                      return 'Password is too short!';
+                    }
+                  },
+                  onSaved: (value) {
+                    _authData['password'] = value;
+                  },
+                ),
+                SizedBox(height: 10),
+                if (_authMode == AuthMode.Signup)
+                  // SizedBox(height:20),
+                  TextFormField(
+                    enabled: _authMode == AuthMode.Signup,
+                    decoration: InputDecoration(
+                      labelText: 'Confirm Password',
+                      hintText: "Enter Password again",
+                      floatingLabelBehavior: FloatingLabelBehavior.always,
+                      suffixIcon: FaIcon(
+                        FontAwesomeIcons.lockOpen,
+                        size: 20,
+                      ),
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 42, vertical: 20),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(28),
+                        borderSide: BorderSide(color: kTextColor),
+                        gapPadding: 10,
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(28),
+                        borderSide: BorderSide(color: kTextColor),
+                        gapPadding: 10,
+                      ),
+                    ),
+                    obscureText: true,
+                    validator: _authMode == AuthMode.Signup
+                        ? (value) {
+                            if (value != _passwordController.text) {
+                              return 'Passwords do not match!';
+                            }
+                          }
+                        : null,
+                  ),
+                SizedBox(
+                  height: 10,
+                ),
+              ],
+            ),
           ),
         ),
       ),
