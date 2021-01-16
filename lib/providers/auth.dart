@@ -74,6 +74,34 @@ class Auth with ChangeNotifier {
     }
   }
 
+  Future<void> signup(String email, String password) async {
+    return _authenticate(email, password, 'signupNewUser');
+  }
+
+  Future<void> login(String email, String password) async {
+    return _authenticate(email, password, 'verifyPassword');
+  }
+
+  Future<bool> tryAutoLogin() async {
+    final prefs = await SharedPreferences.getInstance();
+    if (!prefs.containsKey('userData')) {
+      return false;
+    }
+    final extractedUserData =
+        json.decode(prefs.getString('userData')) as Map<String, Object>;
+    final expiryDate = DateTime.parse(extractedUserData['expiryDate']);
+
+    if (expiryDate.isBefore(DateTime.now())) {
+      return false;
+    }
+    _token = extractedUserData['token'];
+    _userId = extractedUserData['userId'];
+    _expiryDate = expiryDate;
+    notifyListeners();
+    _autoLogout();
+    return true;
+  }
+
   Future<void> logout() async {
     _token = null;
     _userId = null;
