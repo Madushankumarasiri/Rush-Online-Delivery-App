@@ -29,7 +29,16 @@ class AuthScreen extends StatelessWidget {
                               fontFamily: 'Anton',
                               fontWeight: FontWeight.normal,
                             ),
-                          )
+                          ),
+                          SizedBox(height: 20),
+                          Text(
+                              "Sign up with email and password\n or continue with social media",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: kSecondaryColor,
+                                fontSize: 16,
+                              ),
+                              maxLines: 2),
                         ],
                       ),
                     )
