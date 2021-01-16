@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
+import '../constants.dart';
 import '../widgets/app_drawer.dart';
 import '../widgets/products_grid.dart';
 import '../widgets/badge.dart';
@@ -52,8 +54,18 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Latest Products'),
+        title: Text(
+          'MyShop',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         actions: <Widget>[
+          IconButton(
+              icon: FaIcon(
+                FontAwesomeIcons.search,
+                color: Colors.black,
+                size: 20,
+              ),
+              onPressed: null),
           PopupMenuButton(
             onSelected: (FilterOptions selectedValue) {
               setState(() {
@@ -86,6 +98,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
             child: IconButton(
               icon: Icon(
                 Icons.shopping_cart,
+                color: Colors.black,
               ),
               onPressed: () {
                 Navigator.of(context).pushNamed(CartScreen.routeName);
@@ -94,10 +107,35 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
           ),
         ],
       ),
+      // bottomNavigationBar: Container(
+      //   height: 60,
+      //   padding:EdgeInsets.symmetric(vertical:14),
+      //   decoration:BoxDecoration(
+      //     color: Colors.white,
+      //     borderRadius:BorderRadius.only(
+      //       topLeft:Radius.circular(40),
+      //       topRight: Radius.circular(40),
+      //     ),
+      //    boxShadow: [
+      //      BoxShadow(
+      //       offset:Offset(0,-2),
+      //       blurRadius:20,
+      //       color:Colors.blue.shade100,
+      //      )
+      //    ]
+      //      ),
+      //     child: SafeArea(
+      //       child: Row(children: [
+      //         IconButton(icon: null, onPressed: null)
+      //       ],),
+      //     ),
+      // ),
       drawer: AppDrawer(),
+
       body: _isLoading
           ? Center(
-              child: CircularProgressIndicator(),
+              //
+              child: kProgressIndicatorPulse,
             )
           : ProductsGrid(_showOnlyFavorites),
     );

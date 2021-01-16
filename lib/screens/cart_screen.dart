@@ -134,11 +134,10 @@ class _OrderButtonState extends State<OrderButton> {
                     });
                     Navigator.pop(context);
                     await Provider.of<Orders>(context, listen: false).addOrder(
-                      widget.cart.items.values.toList(),
-                      widget.cart.totalAmount,
-                      "hello",
-                      address,
-                    );
+                        widget.cart.items.values.toList(),
+                        widget.cart.totalAmount,
+                        address,
+                        payment);
                     setState(() {
                       _isLoading = false;
                     });

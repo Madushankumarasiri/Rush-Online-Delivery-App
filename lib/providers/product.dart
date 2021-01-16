@@ -30,7 +30,7 @@ class Product with ChangeNotifier {
     isFavorite = !isFavorite;
     notifyListeners();
     final url =
-        'https://shopping-app-40849-default-rtdb.firebaseio.com/products/$id.json';
+        'https://final-shop-8d44f-default-rtdb.firebaseio.com/userFavorites/$userId/$id.json?auth=$token';
     try {
       final response = await http.patch(
         url,

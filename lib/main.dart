@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:rush_delivery/screens/help_center.dart';
+//import 'package:rush_delivery/screens/successful_page.dart';
+import 'package:rush_delivery/theme.dart';
 import 'package:provider/provider.dart';
 
 import './screens/splash_screen.dart';
@@ -24,6 +27,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => Auth(),
         ),
+        // ignore: missing_required_param
         ChangeNotifierProxyProvider<Auth, Products>(
           update: (ctx, auth, previousProducts) => Products(
             auth.token,
@@ -45,11 +49,12 @@ class MyApp extends StatelessWidget {
       child: Consumer<Auth>(
         builder: (ctx, auth, _) => MaterialApp(
           title: 'MyShop',
-          theme: ThemeData(
-            primarySwatch: Colors.purple,
-            accentColor: Colors.deepOrange,
-            fontFamily: 'Lato',
-          ),
+          // theme: ThemeData(
+          //   primarySwatch: Colors.purple,
+          //   accentColor: Colors.deepOrange,
+          //   fontFamily: 'Lato',
+          // ),
+          theme: theme(), //i changed
           home: auth.isAuth
               ? ProductsOverviewScreen()
               : FutureBuilder(
@@ -66,7 +71,8 @@ class MyApp extends StatelessWidget {
             OrdersScreen.routeName: (ctx) => OrdersScreen(),
             UserProductsScreen.routeName: (ctx) => UserProductsScreen(),
             EditProductScreen.routeName: (ctx) => EditProductScreen(),
-            //CheckoutScreen.routeName: (ctx) => CheckoutScreen(),
+            HelpCenter.routeName: (ctx) => HelpCenter(),
+            // Successfullpage.routeName: (ctx) => Successfullpage(),
           },
         ),
       ),
