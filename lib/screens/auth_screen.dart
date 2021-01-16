@@ -17,7 +17,21 @@ class AuthScreen extends StatelessWidget {
                 child: Stack(
                   children: [
                     SingleChildScrollView(
-                      child: Column(),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          SizedBox(height: 20),
+                          Text(
+                            'Rush Delivery',
+                            style: TextStyle(
+                              color: kPrimaryColor,
+                              fontSize: 35,
+                              fontFamily: 'Anton',
+                              fontWeight: FontWeight.normal,
+                            ),
+                          )
+                        ],
+                      ),
                     )
                   ],
                 ))));
