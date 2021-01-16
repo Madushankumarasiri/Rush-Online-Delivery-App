@@ -69,6 +69,28 @@ class ProductDetailScreen extends StatelessWidget{
                 ],
               ),
             ),
+
+            SizedBox(height: 30),
+            Container(
+              margin: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: kPrimaryColor),
+              padding: EdgeInsets.all(10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+              children:[
+                Text("Add to cart",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18
+                ), ),
+                SizedBox(width: 10),
+                IconButton(icon: FaIcon(FontAwesomeIcons.shoppingCart), onPressed: (){},
+              color: Colors.black,) 
+               ],
+            ),
+              ),
           ],
           ),
       ),
