@@ -125,6 +125,7 @@ class _OrderButtonState extends State<OrderButton> {
         ),
         buttons: [
           DialogButton(
+            child: Text('Confirm Order'),
             onPressed: (widget.cart.totalAmount <= 0 || _isLoading)
                 ? null
                 : () async {
