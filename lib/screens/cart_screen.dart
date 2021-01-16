@@ -150,6 +150,10 @@ class _OrderButtonState extends State<OrderButton> {
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton(child: Text('Checkout'), onPressed: () {});
+    return FlatButton(
+        child: Text('Checkout'),
+        onPressed: () {
+          _openPopup(context);
+        });
   }
 }
