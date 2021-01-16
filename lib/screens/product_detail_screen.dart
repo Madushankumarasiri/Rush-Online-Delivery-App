@@ -33,6 +33,42 @@ class ProductDetailScreen extends StatelessWidget{
                 fit: BoxFit.cover,
               ),
             ),
+
+             SizedBox(
+              height: 10,
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              width: double.infinity,
+              child: Column(
+                children: [
+                  Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text(loadedProduct.title,
+            textAlign: TextAlign.left,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 24),
+            ),
+              Text(
+              '\$${loadedProduct.price}',
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 20,
+                fontWeight: FontWeight.bold
+              ),
+            ),
+            ],
+             ),
+             SizedBox(height:10),
+                  Text(
+                    loadedProduct.description,
+                    textAlign: TextAlign.center,
+                    softWrap: true,
+                  ),
+                ],
+              ),
+            ),
           ],
           ),
       ),
