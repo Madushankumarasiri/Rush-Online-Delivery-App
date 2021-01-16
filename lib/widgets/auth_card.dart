@@ -45,18 +45,6 @@ class _AuthCardState extends State<AuthCard> {
     );
   }
 
-  void _switchAuthMode() {
-    if (_authMode == AuthMode.Login) {
-      setState(() {
-        _authMode = AuthMode.Signup;
-      });
-    } else {
-      setState(() {
-        _authMode = AuthMode.Login;
-      });
-    }
-  }
-
   Future<void> _submit() async {
     if (!_formKey.currentState.validate()) {
       // Invalid!
@@ -103,6 +91,18 @@ class _AuthCardState extends State<AuthCard> {
     setState(() {
       _isLoading = false;
     });
+  }
+
+  void _switchAuthMode() {
+    if (_authMode == AuthMode.Login) {
+      setState(() {
+        _authMode = AuthMode.Signup;
+      });
+    } else {
+      setState(() {
+        _authMode = AuthMode.Login;
+      });
+    }
   }
 
   @override
@@ -240,8 +240,10 @@ class _AuthCardState extends State<AuthCard> {
                     ),
                     padding:
                         EdgeInsets.symmetric(horizontal: 30.0, vertical: 8.0),
-                    color: Theme.of(context).primaryColor,
-                    textColor: Theme.of(context).primaryTextTheme.button.color,
+                    // color: Theme.of(context).primaryColor,
+                    color: kPrimaryColor,
+                    // textColor: Theme.of(context).primaryTextTheme.button.color,
+                    textColor: kTextColor,
                   ),
                 FlatButton(
                   child: Text(
@@ -249,7 +251,7 @@ class _AuthCardState extends State<AuthCard> {
                   onPressed: _switchAuthMode,
                   padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 4),
                   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  textColor: Theme.of(context).primaryColor,
+                  textColor: kTextColor,
                 ),
               ],
             ),
