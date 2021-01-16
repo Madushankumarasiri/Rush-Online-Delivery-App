@@ -238,7 +238,11 @@ class _AuthCardState extends State<AuthCard> {
                     // color: Theme.of(context).primaryColor,
                     color: kPrimaryColor,
                     // textColor: Theme.of(context).primaryTextTheme.button.color,
+<<<<<<< HEAD
                     textColor:  kTextColor,
+=======
+                    textColor: kTextColor,
+>>>>>>> 1b6cdfbaa28543953557c4ab564ad5733cd34dc0
                   ),
                 FlatButton(
                   child: Text(
@@ -246,7 +250,11 @@ class _AuthCardState extends State<AuthCard> {
                   onPressed: _switchAuthMode,
                   padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 4),
                   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+<<<<<<< HEAD
                   textColor:  kTextColor,
+=======
+                  textColor: kTextColor,
+>>>>>>> 1b6cdfbaa28543953557c4ab564ad5733cd34dc0
                 ),
                 
               ],
