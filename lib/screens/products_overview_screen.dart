@@ -107,29 +107,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
           ),
         ],
       ),
-      // bottomNavigationBar: Container(
-      //   height: 60,
-      //   padding:EdgeInsets.symmetric(vertical:14),
-      //   decoration:BoxDecoration(
-      //     color: Colors.white,
-      //     borderRadius:BorderRadius.only(
-      //       topLeft:Radius.circular(40),
-      //       topRight: Radius.circular(40),
-      //     ),
-      //    boxShadow: [
-      //      BoxShadow(
-      //       offset:Offset(0,-2),
-      //       blurRadius:20,
-      //       color:Colors.blue.shade100,
-      //      )
-      //    ]
-      //      ),
-      //     child: SafeArea(
-      //       child: Row(children: [
-      //         IconButton(icon: null, onPressed: null)
-      //       ],),
-      //     ),
-      // ),
+      
       drawer: AppDrawer(),
 
       body: _isLoading

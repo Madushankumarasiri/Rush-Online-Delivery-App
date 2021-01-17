@@ -2,7 +2,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import '../constants.dart';
 import 'package:rush_delivery/widgets/auth_card.dart';
-// import 'package:flutter_complete_guide/widgets/auth_card.dart';
+
 
 enum AuthMode { Signup, Login }
 
