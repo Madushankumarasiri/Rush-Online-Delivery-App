@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../constants.dart';
+
 import '../providers/orders.dart' as ord;
 
 class OrderItem extends StatefulWidget {
@@ -24,6 +26,7 @@ class _OrderItemState extends State<OrderItem> {
       child: Column(
         children: <Widget>[
           ListTile(
+            tileColor: kSecondaryColor.withOpacity(.40),
             title: Text('\$${widget.order.amount}'),
             subtitle: Text(
               DateFormat('dd/MM/yyyy hh:mm').format(widget.order.dateTime),
@@ -39,6 +42,8 @@ class _OrderItemState extends State<OrderItem> {
           ),
           if (_expanded)
             Container(
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),
+              color: kPrimaryColor.withOpacity(.40)),
               padding: EdgeInsets.symmetric(horizontal: 15, vertical: 4),
               height: min(widget.order.products.length * 20.0 + 10, 100),
               child: ListView(
@@ -58,7 +63,7 @@ class _OrderItemState extends State<OrderItem> {
                                 '${prod.quantity}x \$${prod.price}',
                                 style: TextStyle(
                                   fontSize: 18,
-                                  color: Colors.grey,
+                                  color: Colors.red,
                                 ),
                               )
                             ],

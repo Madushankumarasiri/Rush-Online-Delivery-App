@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:rush_delivery/screens/successful_page.dart';
 
 import '../providers/cart.dart' show Cart;
 import '../widgets/cart_item.dart';
@@ -133,6 +134,7 @@ class _OrderButtonState extends State<OrderButton> {
                       _isLoading = true;
                     });
                     Navigator.pop(context);
+                   
                     await Provider.of<Orders>(context, listen: false).addOrder(
                         widget.cart.items.values.toList(),
                         widget.cart.totalAmount,
@@ -141,6 +143,8 @@ class _OrderButtonState extends State<OrderButton> {
                     setState(() {
                       _isLoading = false;
                     });
+                    Navigator.of(context)
+                  .pushReplacementNamed(Successfullpage.routeName);
                     widget.cart.clear();
                   },
           )

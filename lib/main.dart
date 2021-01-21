@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rush_delivery/screens/help_center.dart';
+import 'package:rush_delivery/screens/successful_page.dart';
 //import 'package:rush_delivery/screens/successful_page.dart';
 import 'package:rush_delivery/theme.dart';
 import 'package:provider/provider.dart';
@@ -72,7 +73,7 @@ class MyApp extends StatelessWidget {
             UserProductsScreen.routeName: (ctx) => UserProductsScreen(),
             EditProductScreen.routeName: (ctx) => EditProductScreen(),
             HelpCenter.routeName: (ctx) => HelpCenter(),
-            // Successfullpage.routeName: (ctx) => Successfullpage(),
+            Successfullpage.routeName: (ctx) => Successfullpage(),
           },
         ),
       ),
