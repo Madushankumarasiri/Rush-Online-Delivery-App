@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rush_delivery/constants.dart';
+import 'package:rush_delivery/screens/add_groccery_lists.dart';
 import 'package:rush_delivery/screens/help_center.dart';
 import 'package:provider/provider.dart';
 
@@ -54,6 +55,16 @@ class AppDrawer extends StatelessWidget {
             onTap: () {
               Navigator.of(context)
                   .pushReplacementNamed(UserProductsScreen.routeName);
+            },
+          ),
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.library_add,
+             color: kPrimaryColor,),
+            title: Text('AddedList'),
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(AddGrocceryLisrScreen.routeName);
             },
           ),
           Divider(),

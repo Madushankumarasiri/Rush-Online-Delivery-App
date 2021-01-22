@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rush_delivery/screens/add_groccery_lists.dart';
 import 'package:rush_delivery/screens/help_center.dart';
 import 'package:rush_delivery/screens/successful_page.dart';
 //import 'package:rush_delivery/screens/successful_page.dart';
@@ -74,7 +75,9 @@ class MyApp extends StatelessWidget {
             EditProductScreen.routeName: (ctx) => EditProductScreen(),
             HelpCenter.routeName: (ctx) => HelpCenter(),
             Successfullpage.routeName: (ctx) => Successfullpage(),
+            AddGrocceryLisrScreen.routeName:(ctx) => AddGrocceryLisrScreen()
           },
+
         ),
       ),
     );
